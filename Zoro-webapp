@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Zoro Web App</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+      body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        margin-top: 100px;
+      }
+      h1 {
+        font-size: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Zoro Web App</h1>
+    <p>Merhaba <span id="username">Ziyaretçi</span></p>
+
+    <script>
+      const tg = window.Telegram.WebApp;
+      const user = tg.initDataUnsafe?.user;
+      if (user?.first_name) {
+        document.getElementById("username").innerText = user.first_name;
+      }
+      tg.expand();
+    </script>
+  </body>
+</html>
